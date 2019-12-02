@@ -1,0 +1,26 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="ace_b2b_environments" showInDefault="1" showInWebsite="1" translate="label" sortOrder="55">
+            <label>B2B Environments</label>
+            <tab>ace</tab>
+            <resource>Ace_ErpConnector::config_erpconnector</resource>
+            <group id="production" showInDefault="1" showInWebsite="1" translate="label">
+                <label>Production</label>
+                <comment>Production environment</comment>
+                <include path="Ace_B2bConnector::b2b/environments.xml" />
+            </group>
+            <group id="uat" showInDefault="1" showInWebsite="1" translate="label">
+                <label>UAT</label>
+                <comment>UAT environment</comment>
+                <include path="Ace_B2bConnector::b2b/environments.xml" />
+            </group>
+
+            <group id="test" showInDefault="1" showInWebsite="1" translate="label">
+                <label>Test</label>
+                <comment>Test environment</comment>
+                <include path="Ace_B2bConnector::b2b/environments.xml" />
+            </group>
+        </section>
+    </system>
+</config>

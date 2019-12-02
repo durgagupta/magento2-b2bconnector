@@ -1,0 +1,21 @@
+<?xml version="1.0" ?>
+<include>
+    <field id="host" showInDefault="1" showInWebsite="1" showInStore="0" translate="label comment" type="text"
+           sortOrder="1">
+        <label>Base URL</label>
+        <comment>Service url</comment>
+    </field>
+    <field id="auth" showInDefault="1" showInWebsite="1" showInStore="0" translate="label comment"
+           type="select" sortOrder="21">
+        <label>Authentication</label>
+        <comment>What type of authentication is used</comment>
+        <source_model>Ace\B2b\Model\System\Config\Source\AuthType</source_model>
+    </field>
+
+    <field id="additionalheader" showInDefault="1" showInWebsite="1" showInStore="0" translate="label comment"
+           type="text" sortOrder="10">
+        <label>Additional Header</label>
+        <comment>
+            <![CDATA[SOAP only. Usage, see <a href="http://php.net/manual/en/context.http.php#context.http.header" target="_blank">this link</a>]]></comment>
+    </field>
+</include>
