@@ -7,6 +7,7 @@ use Ace\B2bConnector\Api\Data\SyncLogInterface;
 use Magento\Framework\Api\DataObjectHelper;
 use Ace\B2bConnector\Api\Data\SyncLogInterfaceFactory;
 use Magento\Framework\ObjectManagerInterface;
+use Ace\B2bConnector\Model\System\Config\Source\SyncType;
 
 class SyncLog extends \Magento\Framework\Model\AbstractModel
 {
@@ -66,18 +67,40 @@ class SyncLog extends \Magento\Framework\Model\AbstractModel
         return $sync_logDataObject;
     }
 
+    /**
+     * @throws \Exception
+     */
     public function syncData ()
     {
-
         $this->save();
+        if ($this->getData(SyncLogInterface::QUEUE_STATUS)
+                == SyncType::TYPE_QUEUE_INSTANCE) {
+
+            $this->doApiCall();
+        }
+    }
+
+
+    public function doApiCall() {
+
         $requestInterface = $this->objectManager->create("\Ace\B2bConnector\Model\Request\Rest");
-        $requestInterface->send("post",
+        $response = $requestInterface->sendRequest(
             $this->getData(SyncLogInterface::REQUEST_URL),
+            $this->getData(SyncLogInterface::METHOD),
             $this->getData(SyncLogInterface::REQUEST)
         );
 
-        $this->setData(SyncLogInterface::RESPONSE);
+        $status = $requestInterface->getLastResponse()->getStatus();
 
+        $this->setData(SyncLogInterface::QUEUE_STATUS, SyncType::TYPE_QUEUE_COMPLETE);
+        $this->setData(SyncLogInterface::RESPONSE , $response->getBody());
+        $this->setData(SyncLogInterface::RESPONSE_STATUS , $status);
 
+        $this->save();
+
+        $this->setData("response", $response);
     }
+
+
+
 }

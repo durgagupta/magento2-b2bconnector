@@ -21,16 +21,14 @@ abstract class SyncAbstract
      */
     protected $mapper;
 
+    protected $entityType;
 
-    /**
-     * SyncAbstract constructor.
-     * @param LoggerInterface $logger
-     * @param MapperInterface $mapper
-     */
-    public function __construct (LoggerInterface $logger, MapperInterface $mapper)
+
+    public function __construct (LoggerInterface $logger, MapperInterface $mapper, $entityType)
     {
         $this->logger = $logger;
         $this->mapper = $mapper;
+        $this->entityType = constant($entityType);
     }
 
     /**

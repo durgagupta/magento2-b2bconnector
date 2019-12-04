@@ -1,13 +1,14 @@
 <?php
 
-namespace Ace\B2bConnector\Model\Transport;
+namespace Ace\B2bConnector\Model\Request;
 
 use Magento\Framework\App\Config\ScopeConfigInterface;
 
 use Psr\Log\LoggerInterface;
-use Magento\Framework\HTTP\Client\Curl;
 
-abstract class AbstractRequest extends Curl
+use Magento\Framework\HTTP\ZendClient;
+
+abstract class AbstractRequest extends ZendClient
 {
 
     /**
@@ -31,6 +32,6 @@ abstract class AbstractRequest extends Curl
 
     }
 
-    abstract protected function send($method, $action, array $data);
+    abstract protected function sendRequest($url, $method, $params);
 
 }
