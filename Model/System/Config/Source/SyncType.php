@@ -5,13 +5,21 @@ namespace Ace\B2bConnector\Model\System\Config\Source;
 use Magento\Framework\Option\ArrayInterface;
 
 
-class AuthType implements ArrayInterface
+class SyncType implements ArrayInterface
 {
 
-    const TYPE_NONE = 1;
-    const TYPE_BASIC_AUTH = 2;
-    const TYPE_SOAP_AUTH = 3;
+    const TYPE_QUEUE_INSTANCE = 1;
+    const TYPE_QUEUE_PENDING  = 2;
+    const TYPE_QUEUE_COMPLETE = 3;
 
+    const TYPE_QUEUE_SUCCESS = 4;
+    const TYPE_QUEUE_ERROR   = 5;
+
+
+    const SYNC_METHOD_POST      = "POST";
+    const SYNC_METHOD_GET       = "GET";
+    const SYNC_METHOD_PUT       = "PUT";
+    const SYNC_METHOD_DELETE    = "DELETE";
 
     /**
      * @return array
@@ -44,9 +52,12 @@ class AuthType implements ArrayInterface
     public static function getOptionArray()
     {
         return [
-            self::TYPE_NONE => __('No authenticaton'),
-            self::TYPE_BASIC_AUTH => __('Basic authentication'),
-            self::TYPE_SOAP_AUTH => __('SOAP authentication')
+            self::TYPE_QUEUE_INSTANCE => __('Instance sync'),
+            self::TYPE_QUEUE_PENDING => __('Sync Pending'),
+            self::TYPE_QUEUE_COMPLETE => __('Sync Complete'),
+
+            self::TYPE_QUEUE_SUCCESS => __('SUCCESS'),
+            self::TYPE_QUEUE_ERROR => __('ERRPR')
         ];
     }
 

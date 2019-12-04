@@ -1,0 +1,18 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+	<menu>
+		<add id="Ace::top_level"
+			 module="Ace_B2bConnector"
+			 resource="Magento_Backend::content"
+			 sortOrder="9999"
+			 title="Ace"/>
+
+		<add action="ace_b2bconnector/synclog/index"
+			 id="Ace_B2bConnector::ace_b2bconnector_sync_log"
+			 module="Ace_B2bConnector"
+			 parent="Ace::top_level"
+			 resource="Magento_Backend::content"
+			 sortOrder="9999"
+			 title="sync log"/>
+	</menu>
+</config>

@@ -1,0 +1,19 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+	<preference for="Ace\B2bConnector\Api\SyncLogRepositoryInterface" type="Ace\B2bConnector\Model\SyncLogRepository"/>
+	<preference for="Ace\B2bConnector\Api\Data\SyncLogInterface" type="Ace\B2bConnector\Model\Data\SyncLog"/>
+	<preference for="Ace\B2bConnector\Api\Data\SyncLogSearchResultsInterface" type="Magento\Framework\Api\SearchResults"/>
+	<virtualType name="Ace\B2bConnector\Model\ResourceModel\SyncLog\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+		<arguments>
+			<argument name="mainTable" xsi:type="string">ace_b2bconnector_sync_log</argument>
+			<argument name="resourceModel" xsi:type="string">Ace\B2bConnector\Model\ResourceModel\SyncLog\Collection</argument>
+		</arguments>
+	</virtualType>
+	<type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+		<arguments>
+			<argument name="collections" xsi:type="array">
+				<item name="ace_b2bconnector_sync_log_listing_data_source" xsi:type="string">Ace\B2bConnector\Model\ResourceModel\SyncLog\Grid\Collection</item>
+			</argument>
+		</arguments>
+	</type>
+</config>

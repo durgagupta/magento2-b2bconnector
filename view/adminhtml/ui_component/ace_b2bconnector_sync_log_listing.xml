@@ -1,0 +1,85 @@
+<?xml version="1.0" ?>
+<listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+	<argument name="data" xsi:type="array">
+		<item name="js_config" xsi:type="array">
+			<item name="provider" xsi:type="string">ace_b2bconnector_sync_log_listing.ace_b2bconnector_sync_log_listing_data_source</item>
+		</item>
+	</argument>
+	<settings>
+		<spinner>ace_b2bconnector_sync_log_columns</spinner>
+		<deps>
+			<dep>ace_b2bconnector_sync_log_listing.ace_b2bconnector_sync_log_listing_data_source</dep>
+		</deps>
+	</settings>
+	<dataSource component="Magento_Ui/js/grid/provider" name="ace_b2bconnector_sync_log_listing_data_source">
+		<settings>
+			<updateUrl path="mui/index/render"/>
+		</settings>
+		<aclResource>Ace_B2bConnector::sync_log</aclResource>
+		<dataProvider class="Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider" name="ace_b2bconnector_sync_log_listing_data_source">
+			<settings>
+				<requestFieldName>id</requestFieldName>
+				<primaryFieldName>sync_log_id</primaryFieldName>
+			</settings>
+		</dataProvider>
+	</dataSource>
+	<listingToolbar name="listing_top">
+		<settings>
+			<sticky>true</sticky>
+		</settings>
+		<bookmark name="bookmarks"/>
+		<columnsControls name="columns_controls"/>
+		<filters name="listing_filters"/>
+		<paging name="listing_paging"/>
+	</listingToolbar>
+	<columns name="ace_b2bconnector_sync_log_columns">
+		<selectionsColumn name="ids">
+			<settings>
+				<indexField>sync_log_id</indexField>
+			</settings>
+		</selectionsColumn>
+		<column name="sync_log_id">
+			<settings>
+				<filter>text</filter>
+				<sorting>asc</sorting>
+				<label translate="true">ID</label>
+			</settings>
+		</column>
+		<column name="entity_type">
+			<settings>
+				<filter>text</filter>
+				<label translate="true">entity_type</label>
+			</settings>
+		</column>
+		<column name="queue_status">
+			<settings>
+				<filter>text</filter>
+				<label translate="true">queue_status</label>
+			</settings>
+		</column>
+		<column name="queue_time">
+			<settings>
+				<filter>text</filter>
+				<label translate="true">queue_time</label>
+			</settings>
+		</column>
+		<column name="response_status">
+			<settings>
+				<filter>text</filter>
+				<label translate="true">response_status</label>
+			</settings>
+		</column>
+		<column name="entity_id">
+			<settings>
+				<filter>text</filter>
+				<label translate="true">entity_id</label>
+			</settings>
+		</column>
+		<column name="method">
+			<settings>
+				<filter>text</filter>
+				<label translate="true">method</label>
+			</settings>
+		</column>
+	</columns>
+</listing>

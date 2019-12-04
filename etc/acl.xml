@@ -1,0 +1,15 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Acl/etc/acl.xsd">
+	<acl>
+		<resources>
+			<resource id="Magento_Backend::admin">
+				<resource id="Ace_B2bConnector::sync_log" sortOrder="10" title="sync_log">
+					<resource id="Ace_B2bConnector::sync_log_save" sortOrder="10" title="Save sync_log"/>
+					<resource id="Ace_B2bConnector::sync_log_delete" sortOrder="20" title="Delete sync_log"/>
+					<resource id="Ace_B2bConnector::sync_log_update" sortOrder="30" title="Update sync_log"/>
+					<resource id="Ace_B2bConnector::sync_log_view" sortOrder="40" title="View sync_log"/>
+				</resource>
+			</resource>
+		</resources>
+	</acl>
+</config>
