@@ -57,7 +57,7 @@ class SyncType implements ArrayInterface
             self::TYPE_QUEUE_COMPLETE => __('Sync Complete'),
 
             self::TYPE_QUEUE_SUCCESS => __('SUCCESS'),
-            self::TYPE_QUEUE_ERROR => __('ERRPR')
+            self::TYPE_QUEUE_ERROR => __('ERROR')
         ];
     }
 

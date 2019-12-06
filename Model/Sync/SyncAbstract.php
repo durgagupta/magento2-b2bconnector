@@ -21,14 +21,20 @@ abstract class SyncAbstract
      */
     protected $mapper;
 
-    protected $entityType;
+    private $entityType;
+    private $postDataType;
 
 
-    public function __construct (LoggerInterface $logger, MapperInterface $mapper, $entityType)
+    public function __construct (LoggerInterface $logger,
+        MapperInterface $mapper,
+        $entityType,
+        $postDataType)
     {
         $this->logger = $logger;
         $this->mapper = $mapper;
         $this->entityType = constant($entityType);
+        $this->entityType = $entityType;
+        $this->postDataType = $postDataType;
     }
 
     /**
@@ -55,6 +61,15 @@ abstract class SyncAbstract
     public function getLogger ()
     {
         return $this->logger;
+    }
+
+    public function getEntityType() {
+
+        return $this->entityType;
+    }
+
+    public function getPostDataType() {
+        return $this->postDataType;
     }
 
 }
